@@ -1,0 +1,22 @@
+filter_name = "Classic"
+filter_description = "Items from the main game."
+filter_author = "Zottelchen"
+prefixes = [
+    "C",
+    "C-",
+    "0.",
+    "V",
+    "V-",
+    "icon:4279397",
+    "icon:1120721",
+    "icon:626006",
+    "icon:626003",
+    "icon:626008"
+]
+
+[replacers]
+ADDON_COLOR = 0xD6FF5A
+TOC_VERSION = "100005"
+CURSE_ID = ""
+WAGO_ID = ""
+WOW_INTERFACE_ID = ""
