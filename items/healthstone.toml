@@ -2,8 +2,6 @@ category_name = "Healthstone"
 category_color = 0x93E5AB
 category_description = { _ = "Just a healthstone." }
 
-mergeable = true
-merged_by_default = true
 
 [healthstone]
 enabled_by_default = false
