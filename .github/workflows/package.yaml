@@ -91,6 +91,8 @@ jobs:
           cp -r ./out/.git ./dist
           ls -la ./dist
           cd ./dist
+          mv AdiBags_Classic.lua AdiBags_Classical.lua
+          mv AdiBags_Classic.toc AdiBags_Classical.toc
           git add *
 
       # once cloned, we just run the GitHub Action for the packager project
