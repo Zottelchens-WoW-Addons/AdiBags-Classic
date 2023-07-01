@@ -8,14 +8,12 @@ name: Package and release 📦
 on:
   push:
     tags:
-      - '**'
+      - "**"
 
 # a workflow is built up as jobs, and within these jobs are steps
 jobs:
-
   # "release" is a job, you can name it anything you want
   release:
-
     # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
     runs-on: ubuntu-latest
 
@@ -24,25 +22,24 @@ jobs:
       WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
       WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
-      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  # "GITHUB_TOKEN" is a secret always provided to the workflow
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }} # "GITHUB_TOKEN" is a secret always provided to the workflow
 
     # "steps" holds a list of all the steps needed to package and release our AddOn
     steps:
-
       # we first have to clone the AddOn project, this is a required step
       - name: 👱👱Clone project
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # gets entire git history, needed for automatic changelogs
+          fetch-depth: 0 # gets entire git history, needed for automatic changelogs
           path: ./variant
 
       - name: 🎭Get Zottelchen/adibags-creator-action
         uses: actions/checkout@v3
         with:
-            repository: Zottelchen/adibags-creator-action
-            ref: refs/heads/v2
-            persist-credentials: false
-            path: ./action
+          repository: Zottelchen/adibags-creator-action
+          ref: refs/heads/v2
+          persist-credentials: false
+          path: ./action
       - name: 🏹Merge
         run: |
           cp -r ./variant/* ./action
@@ -93,6 +90,8 @@ jobs:
           cd ./dist
           mv AdiBags_Classic.lua AdiBags_Classical.lua
           mv AdiBags_Classic.toc AdiBags_Classical.toc
+          sed -i 's/Interface\\AddOns\\AdiBags_Classic\\icon/Interface\\AddOns\\AdiBags_Classical\\icon/g' AdiBags_Classical.toc
+          sed -i 's/AdiBags_Classic.lua/AdiBags_Classical.lua/g' AdiBags_Classical.toc
           git add *
 
       # once cloned, we just run the GitHub Action for the packager project
