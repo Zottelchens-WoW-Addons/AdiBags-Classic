@@ -11,12 +11,12 @@ prefixes = [
     "icon:1120721",
     "icon:626006",
     "icon:626003",
-    "icon:626008"
+    "icon:626008",
 ]
 
 [replacers]
 ADDON_COLOR = 0xD6FF5A
-TOC_VERSION = "100100"
+TOC_VERSION = "100105"
 CURSE_ID = "881453"
 WAGO_ID = "56n9daN9"
 WOW_INTERFACE_ID = "26598"
