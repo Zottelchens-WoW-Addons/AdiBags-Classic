@@ -17,6 +17,7 @@
 - Item Enhancements
 - Flasks, Elixirs, Potions
 - Healthstone
+- Recipes
 
 ## Bugs?
 
